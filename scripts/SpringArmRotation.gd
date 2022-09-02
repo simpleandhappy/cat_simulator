@@ -1,7 +1,7 @@
 extends SpringArm
 
 export var mouse_sensitivity = 0.05
-export var controller_sensitivity = 3
+export var controller_sensitivity = 0.05
 
 func _ready():
 	pass

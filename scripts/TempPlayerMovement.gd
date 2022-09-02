@@ -18,12 +18,14 @@ func _physics_process(delta):
 	#move the character
 	move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
-	print(move_direction)
+	
 	
 	#move camera relative to character; need to normalize cuz vector math makes them move faster
 	move_direction = move_direction.rotated(Vector3.UP, _spring_arm.rotation.y).normalized()
-	
+
 	#speed setting
+	if Input.is_action_pressed("sprint"):
+		speed = speed + 2
 	_velocity.x = move_direction.x * speed
 	_velocity.z = move_direction.z * speed
 	_velocity.y -= gravity * delta #pull character down over time
